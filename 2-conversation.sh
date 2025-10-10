@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Jon:hey!Don,how are you?"
+echo "Don:hi!Jon,iam good.what about you?"
+echo "Jon:Iam too good.Glad to see you after so many days."
+echo "Don:yeah!where are you working now?"
+echo "Jon:Iam working in a coffee shop as a waiter.what about you?"
+echo "Don:Iam working as a manager in a saloon shop."
+echo "Jon:Ho nice man!whenever you will be free visit our coffee shop."
+echo "Don:yeah sure!catch you later,bye!"
+echo "Jon:Bye bye!
