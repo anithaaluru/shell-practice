@@ -7,19 +7,23 @@ if [ $USERID -ne 0 ]
 else
   echo "you are running this script with root access"
 fi
-dnf list installed mysql
-if [ $? -ne 0 ]
-then 
- echo "mysql is not installed...going to install it"
+   dnf list installed mysql
+   if [ $? -ne 0 ]
+    then 
+      echo "mysql is not installed...going to install it"
+# else
+#  echo "mysql is already installed..nothing to do"
+#  exit 1
+# fi
+  dnf install mysql -y
+   if [ $? -eq 0 ]
+    then     
+      echo "Installing MYSQL is... success"
+    else
+      echo "Installing MYSQL is... failure"
+      exit 1
+    fi
 else
  echo "mysql is already installed..nothing to do"
- exit 1
-fi
-dnf install mysql -y
-if [ $? -eq 0 ]
-then 
- echo "Installing MYSQL is... success"
-else
- echo "Installing MYSQL is... failure"
  exit 1
 fi
