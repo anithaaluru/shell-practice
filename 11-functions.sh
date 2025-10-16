@@ -5,6 +5,7 @@ then
  echo "ERROR::please run this script with root access"
 else
  echo "you are running this script with root access"
+ exit 1
 fi
 
 VALIDATE () 
