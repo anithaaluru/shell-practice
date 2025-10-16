@@ -1,6 +1,6 @@
 #!/bin/bash
 USERID=$(id -u)
-if ( $USERID -ne 0 )
+if [ $USERID -ne 0 ]
 then
  echo "ERROR::please run this script with root access"
 else
@@ -8,7 +8,7 @@ else
 fi
 
 VALIDATE () 
- if ( $1 -ne 0 )
+ if [ $1 -ne 0 ]
   then
    echo "$2 installation is failure"
  else
@@ -17,7 +17,7 @@ VALIDATE ()
  fi
 
 dnf list installed mysql
- if ( $? -ne 0 )
+ if [ $? -ne 0 ]
  then 
   echo "mysql is not installed...going to install it"
   dnf install mysql -y
@@ -27,7 +27,7 @@ dnf list installed mysql
  fi 
 
  dnf list installed python3
- if ( $? -ne 0 )
+ if [ $? -ne 0 ]
  then 
   echo "python3 is not installed...going to install it"
   dnf install python3 -y
@@ -37,7 +37,7 @@ dnf list installed mysql
  fi 
 
  dnf list installed nginx
- if ( $? -ne 0 )
+ if [ $? -ne 0 ]
  then 
   echo "nginx is not installed...going to install it"
   dnf install nginx -y
