@@ -9,7 +9,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
  mkdir -p $LOGS_FOLDER
  echo "script started  executed at:$(date)" | tee -a $LOG_FILE
- packages=("mysql" "python3" "nginx" "httpd")
+ PACKAGES=("mysql" "python3" "nginx" "httpd")
 
 if [ $USERID -ne 0 ]
 then
@@ -28,7 +28,7 @@ VALIDATE ()
    echo -e "$2 installation is  $G success $N" | tee -a $LOG_FILE
  fi
 
-for packages in $packages
+for packages in ${PACKAGES[@]}
   do
     dnf list installed $packages &>>$LOG_FILE
     if [ $? -ne 0 ]
