@@ -51,7 +51,7 @@ dnf list installed mysql &>>$LOG_FILE
  if [ $? -ne 0 ]
  then 
   echo -e "$Y nginx is not installed...going to install it $N" | tee -a $LOG_FILE
- dnf install nginx -y  &>>$LOG_FILE
+  dnf install nginx -y  &>>$LOG_FILE
   VALIDATE $? "nginx"
  else
   echo -e "$G nginx is already installed..Nothing to do $N" | tee -a $LOG_FILE
