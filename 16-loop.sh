@@ -33,7 +33,7 @@ for packages in $packages
     dnf list installed $packages &>>$LOG_FILE
     if [ $? -ne 0 ]
  then 
-  echo -e "$packages mysql is not installed...going to install it $N" | tee -a $LOG_FILE
+  echo -e "$packages is not installed...going to install it $N" | tee -a $LOG_FILE
   dnf install $packages -y &>>$LOG_FILE
   VALIDATE $? "$packages"
  else
