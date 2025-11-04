@@ -38,7 +38,7 @@ if [ ! -d $dest_dir ]
   exit 1
 fi
 
-Files=$(find $source_dir -name "*.log" mtime +$days)
+Files=$(find $source_dir -name "*.log" -mtime +$days)
 
 if [ ! -z $Files ]
 then 
