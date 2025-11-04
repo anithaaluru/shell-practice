@@ -37,4 +37,11 @@ if [ ! -d $dest_dir ]
   exit 1
 fi
 
-# file_name=
+Files=$(find $source_dir -name "*.log" mtime +$days)
+
+if [ ! -z $Files ]
+then 
+echo "log files are found"
+else
+ echo "log files are not exist"
+fi
