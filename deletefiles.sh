@@ -20,6 +20,11 @@ else
  echo -e "$Y you are running this script with root access $N"
  fi
 
+ if [ $# -lt 2 ]
+ then 
+  echo "USAGE::sh deletefiles.sh <sourcedirectory> <destinationdeirectory> <days>"
+fi
+
 if [ ! -d $source_dir ]
  then
   echo "source directory $source_dir does not exist...$G please check $N"
@@ -36,7 +41,3 @@ if [ ! -d $dest_dir ]
   echo "destination directory $dest_dir exist"
 fi
 
-if [ $# -lt 2 ]
- then 
-  echo "USAGE::sh deletefiles.sh <sourcedirectory> <destinationdeirectory> <days>"
-fi
