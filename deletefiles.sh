@@ -23,6 +23,7 @@ else
 if [ ! -d $source_dir ]
  then
   echo "source directory $source_dir does not exist...$G please check $N"
+  exit 1
  else
   echo "source directory $source_dir exist"
 fi
@@ -30,6 +31,7 @@ fi
 if [ ! -d $dest_dir ]
  then
   echo "destination directory $dest_dir does not exist...$G please check $N"
+  exit 1
  else
   echo "destination directory $dest_dir exist"
 fi
