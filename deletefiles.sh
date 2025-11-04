@@ -22,7 +22,7 @@ else
 
  if [ $# -lt 2 ]
  then 
-  echo "USAGE::deletefiles.sh <source-directory> <dest-directory> <days>"
+  echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
 fi
 
 if [ ! -d $source_dir ]
