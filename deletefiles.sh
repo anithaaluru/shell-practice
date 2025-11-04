@@ -29,9 +29,9 @@ fi
 
 if [ ! -d $dest_dir ]
  then
-  echo "source directory $dest_dir does not exist...$G please check $N"
+  echo "destination directory $dest_dir does not exist...$G please check $N"
  else
-  echo "source directory $dest_dir exist"
+  echo "destination directory $dest_dir exist"
 fi
 
 if [ $# -lt 2 ]
