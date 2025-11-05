@@ -24,9 +24,10 @@ else
       echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
  }
 
- if [ $# -lt 2 ]
+ if [ $# -lt 3 ]
  then 
    USAGE
+   exit 1
 fi
 
 if [ ! -d "$SOURCE_DIR" ]
@@ -41,7 +42,7 @@ if [ ! -d "$DEST_DIR" ]
   exit 1
 fi
 
-Files=$(find $SOURCE_DIR -name "*.log" -mtime +$Days)
+Files=$(find "$SOURCE_DIR" -name "*.log" -mtime +$Days)
 
 if [ ! -z $Files ]
 then 
