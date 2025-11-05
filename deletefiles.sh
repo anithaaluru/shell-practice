@@ -32,10 +32,12 @@ VALIDATE(){
         echo "You are running with root access" 
     fi
 
+
+
 mkdir -p $LOGS_FOLDER
 
 USAGE(){
-    echo -e "$R USAGE:: $N sh deletefiles.sh <source-dir> <destination-dir> <days(optional)>"
+    echo -e "$R USAGE:: $N sh 20-backup.sh <source-dir> <destination-dir> <days(optional)>"
     exit 1
 }
 
@@ -47,7 +49,7 @@ fi
 if [ ! -d $SOURCE_DIR ]
 then
     echo -e "$R Source Directory $SOURCE_DIR does not exist. Please check $N"
-    exit 1
+    
 fi
 
 if [ ! -d $DEST_DIR ]
@@ -60,8 +62,25 @@ FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 
 if [ ! -z "$FILES" ]
 then
-    echo "files are not found"
-    
+    echo "Files to zip are: $FILES"
+    TIMESTAMP=$(date +%F-%H-%M-%S)
+    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+
+    if [ -f $ZIP_FILE ]
+    then
+        echo -e "Successfully created Zip file"
+
+        while IFS= read -r filepath
+        do
+            echo "Deleting file: $filepath" | tee -a $LOG_FILE
+            rm -rf $filepath
+        done <<< $FILES
+        echo -e "Log files older than $DAYS from source directory removed ... $G SUCCESS $N"
+    else
+        echo -e "Zip file creation ... $R FAILURE $N"
+        exit 1
+    fi
 else
-    echo "files are found"
+    echo -e "No log files found older than 14 days ... $Y SKIPPING $N"
 fi
