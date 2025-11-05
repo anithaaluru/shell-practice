@@ -21,23 +21,22 @@ else
  echo -e "$Y you are running this script with root access $N"
  fi
 
- 
+ if [ $# -lt 2 ]
+ then 
+  echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
+fi
+
 if [ ! -d $source_dir ]
  then
-  echo "$G source directory $source_dir does not exist.please check $N"
+  echo -e "$G source directory $source_dir does not exist.please check $N"
   exit 1
 fi
 
 if [ ! -d $dest_dir ]
  then
-  echo "$G destination directory $dest_dir does not exist.please check $N"
+  echo -e "$G destination directory $dest_dir does not exist.please check $N"
   exit 1
 fi
-if [ $# -lt 2 ]
- then 
-  echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
-fi
-
 
 Files=$(find $source_dir -name "*.log" -mtime +$Days)
 
