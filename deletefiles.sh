@@ -20,10 +20,13 @@ then
 else
  echo -e "$Y you are running this script with root access $N"
  fi
+ USAGE(){
+      echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
+ }
 
  if [ $# -lt 2 ]
  then 
-  echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
+   USAGE
 fi
 
 if [ ! -d $SOURCE_DIR ]
