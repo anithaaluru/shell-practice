@@ -29,19 +29,19 @@ else
    USAGE
 fi
 
-if [ ! -d "$SOURCE_DIR" ]
+if [ ! -d $SOURCE_DIR ]
  then
   echo -e "$Y source directory $SOURCE_DIR does not exist.please check $N"
   exit 1
 fi
 
-if [ ! -d "$DEST_DIR" ]
+if [ ! -d $DEST_DIR ]
  then
   echo -e "$Y destination directory $DEST_DIR does not exist.please check $N"
   exit 1
 fi
 
-Files=$(find "$SOURCE_DIR" -name "*.log" -mtime +$Days)
+Files=$(find $SOURCE_DIR -name "*.log" -mtime +$Days)
 
 if [ ! -z $Files ]
 then 
