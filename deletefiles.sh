@@ -27,7 +27,6 @@ else
  if [ $# -lt 3 ]
  then 
    USAGE
-   exit 1
 fi
 
 if [ ! -d "$SOURCE_DIR" ]
