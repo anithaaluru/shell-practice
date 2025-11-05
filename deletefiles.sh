@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
-source_dir=$1
-dest_dir=$2
+SOURCE_DIR=$1
+DEST_DIR=$2
 Days=${3:-14}
 LOGS_FOLDER="/var/log/delete-log"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
@@ -26,15 +26,15 @@ else
   echo "USAGE::sh deletefiles.sh <source-dir> <dest-dir> <days>"
 fi
 
-if [ ! -d $source_dir ]
+if [ ! -d $SOURCE_DIR ]
  then
-  echo -e "$G source directory $source_dir does not exist.please check $N"
+  echo -e "$Y source directory $SOURCE_DIR does not exist.please check $N"
   exit 1
 fi
 
-if [ ! -d $dest_dir ]
+if [ ! -d $DEST_DIR ]
  then
-  echo -e "$G destination directory $dest_dir does not exist.please check $N"
+  echo -e "$Y destination directory $DEST_DIR does not exist.please check $N"
   exit 1
 fi
 
