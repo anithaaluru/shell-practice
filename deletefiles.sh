@@ -14,15 +14,7 @@ Y="\e[33m"
 N="\e[0m"
 
 # validate functions takes input as exit status, what command they tried to install
-VALIDATE(){
-    if [ $1 -eq 0 ]
-    then
-        echo -e "$2 is ... $G SUCCESS $N" | tee -a $LOG_FILE
-    else
-        echo -e "$2 is ... $R FAILURE $N" | tee -a $LOG_FILE
-        exit 1
-    fi
-}
+
 
     if [ $USERID -ne 0 ]
     then
