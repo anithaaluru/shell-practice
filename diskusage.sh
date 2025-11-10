@@ -5,7 +5,8 @@ while IFS= read line
 do
    usage=$(echo $line | awk '{print $6F}' | cut -d "%" -f1)
    partition=$(echo $line | awk '{print $7F}')
-   echo "$partition: $usage"
-
-
+   if [ $usage -ge $disk_threshold]
+     then
+       echo "there is high disk usage:$partition"
+   fi
 done <<< $disk_usage
