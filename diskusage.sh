@@ -7,6 +7,6 @@ do
    partition=$(echo $line | awk '{print $7F}')
    if [ $usage -ge $disk_threshold ]
      then
-       echo "there is high disk usage:$partition"
+       echo "there is high disk usage $partition: $usage"
    fi
 done <<< $disk_usage
