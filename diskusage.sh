@@ -11,4 +11,4 @@ do
        MSG+="There is high disk usage $partition: $usage \n"
    fi
 done <<< $disk_usage
-echo "$MSG"
+echo -e "$MSG"
